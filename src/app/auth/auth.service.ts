@@ -14,7 +14,7 @@ export class AuthService {
   getHttpOptions(): HttpHeaders {
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      Accept: 'text/plain'
+      'Accept': 'text/plain'
     });
   }
 
