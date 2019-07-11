@@ -14,15 +14,15 @@ export class AuthService {
   getHttpOptions(): HttpHeaders {
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      'Accept': 'text/plain'
+      Accept: 'text/plain'
     });
   }
 
   public login = (login: string, password: string): Observable<string> => {
-    const toAdd = JSON.stringify({ email: login, senha: password });
+    const toAdd = JSON.stringify({ login: login, password: password });
     return (
       this.http
-        .post<string>(getDefaultURL('auth'), toAdd, { headers: this.getHttpOptions(), responseType: 'text' as 'json' })
+        .post<string>(getDefaultURL('/auth/login'), toAdd, { headers: this.getHttpOptions(), responseType: 'text' as 'json' })
         .pipe(catchError(this.handleError))
     );
   }

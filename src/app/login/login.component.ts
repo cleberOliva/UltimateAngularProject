@@ -43,13 +43,14 @@ export class LoginComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
+      console.log('passando aqui!');
       return;
     }
 
     this.loading = true;
 
     this.authService.login(this.f.username.value, this.f.password.value).subscribe(
-      data => {
+      (data) => {
         localStorage.setItem('token', data);
         this.authUtil.currentTokenValue = data;
         console.log(this.authUtil.currentTokenValue);

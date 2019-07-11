@@ -1,3 +1,8 @@
-<p>
-  area-list works!
-</p>
+<div *ngFor="let area of areas">
+  ID: {{ area.id }} <br>
+  Descrição: {{ area.description }} <br>
+  Geometria: {{ area.geometry }} <br>
+  Solo<br>
+  ID:{{ area.soil.id }} <br>
+  Descrição: {{ area.soil.description }}
+</div>

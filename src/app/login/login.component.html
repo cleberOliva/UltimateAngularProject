@@ -1,19 +1,19 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-signin text-center">
 
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
 
   <div class="form-group">
     <input type="text" formControlName="username" placeholder="Usuário" class="form-control"
       [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
     <div *ngIf="loginForm.hasError && f.username.errors" class="invalid-feedback">
-      <div *ngIf="f.username.errors.required">Username is required</div>
+      <div *ngIf="f.username.errors.required">Usuário obrigatório</div>
     </div>
   </div>
   <div class="form-group">
     <input type="password" placeholder="Senha" formControlName="password" class="form-control"
       [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
     <div *ngIf="loginForm.hasError && f.password.errors" class="invalid-feedback">
-      <div *ngIf="f.password.errors.required">Password is required</div>
+      <div *ngIf="f.password.errors.required">Senha obrigatório</div>
     </div>
   </div>
 

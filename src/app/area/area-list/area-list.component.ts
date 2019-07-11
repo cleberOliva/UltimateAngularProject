@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Area } from '../area';
+import { Area } from '../area.model';
+import { AreaService } from '../area.service';
 
 @Component({
   selector: 'app-area-list',
@@ -9,7 +10,15 @@ import { Area } from '../area';
 export class AreaListComponent implements OnInit {
   areas: Area[];
 
+  constructor(private areaService: AreaService) { }
   ngOnInit() {
+
+    this.areaService.getAll().subscribe(
+      (data: Area[]) => {
+        this.areas = data;
+      },
+      error => console.log(error)
+    );
   }
 
 }

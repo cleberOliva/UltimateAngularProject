@@ -4,6 +4,7 @@ import { AreaFormsComponent } from './area-forms/area-forms.component';
 import { AreaListComponent } from './area-list/area-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AreaService } from './area.service';
 
 const routes: Routes = [
   { path: '', component: AreaListComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [AreaService]
 })
 export class AreaModule { }
