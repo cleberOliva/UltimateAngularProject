@@ -4,13 +4,11 @@ export class Area {
     geometry: string;
     soil;
 
-    constructor(id: string, description: string, geometry: string, tipoSoil: number = 1, descriptionSoil: string){
-        this.id = id;
+    constructor(description: string, geometry: string, tipoSoil: number = 1){
         this.description = description;
         this.geometry = geometry;
         this.soil = {
-            id: tipoSoil,
-            description: descriptionSoil
+            id: tipoSoil
         };
     }
 }

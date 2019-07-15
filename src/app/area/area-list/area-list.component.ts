@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Area } from '../area.model';
 import { AreaService } from '../area.service';
+import { Router, Route, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-area-list',
@@ -9,8 +10,13 @@ import { AreaService } from '../area.service';
 })
 export class AreaListComponent implements OnInit {
   areas: Area[];
+  private areaId: number;
 
-  constructor(private areaService: AreaService) { }
+  constructor(
+    private areaService: AreaService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
   ngOnInit() {
 
     this.areaService.getAll().subscribe(
@@ -19,6 +25,15 @@ export class AreaListComponent implements OnInit {
       },
       error => console.log(error)
     );
+
+  }
+
+  onAlterar(id: number){
+    this.router.navigate(["/area/update", id]);
+  }
+
+  onDelete(id: number){
+    this.areaService.delete(id).subscribe();
   }
 
 }

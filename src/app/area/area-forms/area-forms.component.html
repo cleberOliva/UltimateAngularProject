@@ -1,3 +1,21 @@
-<p>
-  area-forms works!
-</p>
+<form action="" [formGroup]="areaForm" (ngSubmit)="onSubmit()">
+  <div>
+    <input type="text" class="form-control" formControlName="description"
+      [class.is-invalid]="f.description.errors && submitted">
+    <label for="description">Descrição</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="geometry"
+      [class.is-invalid]="f.geometry.errors && submitted">
+    <label for="description">Geometria</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="soil" [class.is-invalid]="f.soil.errors && submitted">
+    <label for="description">Solo</label>
+  </div>
+
+  <button class="btn btn-success">
+    <span *ngIf="!isEdit">Gravar Dados</span>
+    <span *ngIf="isEdit">Alterar Dados</span>
+  </button>
+</form>

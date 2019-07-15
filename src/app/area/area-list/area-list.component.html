@@ -1,8 +1,19 @@
 <div *ngFor="let area of areas">
-  ID: {{ area.id }} <br>
-  Descrição: {{ area.description }} <br>
-  Geometria: {{ area.geometry }} <br>
-  Solo<br>
-  ID:{{ area.soil.id }} <br>
-  Descrição: {{ area.soil.description }}
+  <div>ID: {{ area.id }} <br>
+    Descrição: {{ area.description }} <br>
+    Geometria: {{ area.geometry }} <br>
+    Solo<br>
+    ID:{{ area.soil.id }} <br>
+    Descrição: {{ area.soil.description }} <br>
+    CreatedAt: {{ area.createdAt }} <br>
+    Person: {{ area.person.name }}
+    <div>
+      <button type="submit" (click)="onAlterar(area.id)">Alterar</button>
+      <button type="submit" (click)="onDelete(area.id)">Remover</button>
+      <!-- <button [routerLink]="[ '/area/remover']" type="submit" name="action">Adicionar Area</button> -->
+    </div>
+  </div>
+</div>
+<div>
+  <button [routerLink]="[ '/area/create']" type="submit" name="action">Adicionar Area</button>
 </div>

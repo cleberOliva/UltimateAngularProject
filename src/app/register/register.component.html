@@ -1,0 +1,24 @@
+<form action="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <input type="text" class="form-control" formControlName="name" [class.is-invalid]="f.name.errors && submitted">
+    <label for="name">Nome</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="mail" [class.is-invalid]="f.mail.errors && submitted">
+    <label for="mail">Email</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="phone" [class.is-invalid]="f.phone.errors && submitted">
+    <label for="phone">Telefone</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="password" [class.is-invalid]="f.password.errors && submitted">
+    <label for="password">Senha</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="birth" [class.is-invalid]="f.birth.errors && submitted">
+    <label for="birth">Nascimento</label>
+  </div>
+
+  <button>Salvar Usuário</button>
+</form>

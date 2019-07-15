@@ -9,7 +9,7 @@ import { AreaService } from './area.service';
 const routes: Routes = [
   { path: '', component: AreaListComponent},
   { path: 'create', component: AreaFormsComponent},
-  { path: 'update', component: AreaFormsComponent}
+  { path: 'update/:id', component: AreaFormsComponent}
 ];
 
 @NgModule({

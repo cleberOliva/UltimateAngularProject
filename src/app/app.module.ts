@@ -11,12 +11,14 @@ import { LoginComponent } from './login/login.component';
 import { AuthUtilService } from './auth/auth-util.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationBarComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
