@@ -8,9 +8,6 @@
     <mat-nav-list>
       <!-- <a mat-list-item [routerLink]="[ '/area' ]" routerLinkActive="active">Area</a> -->
       <a mat-list-item [routerLink]="[ '/area' ]" routerLinkActive="active">Area</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-      <a mat-list-item href="#">Link 4</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -21,9 +18,11 @@
       </button>
       <span>UltimateAngularProject</span>
       <span class="spacer"></span>
-      <button mat-button [routerLink] = "[ '/login' ]">Login</button>
-      <button mat-button (click)="logout()">Log-out</button>
-      <button mat-button [routerLink] = "[ '/register' ]">Registrar</button>
+      <form>
+        <button mat-button *ngIf="!isLogged()" [routerLink]="[ '/login' ]">Login</button>
+        <button mat-button *ngIf="isLogged()" (click)="logout()">Logout</button>
+        <button mat-button [routerLink] = "[ '/register' ]">Registrar</button>
+      </form>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

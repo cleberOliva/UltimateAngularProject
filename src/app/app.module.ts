@@ -12,6 +12,7 @@ import { AuthUtilService } from './auth/auth-util.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
     NavigationBarComponent,
     LoginComponent,
     RegisterComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

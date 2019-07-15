@@ -18,11 +18,11 @@ export class NavigationBarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private authUtil: AuthUtilService) {}
 
-  public isLogged(){
+  public isLogged() {
     return this.authUtil.isLogged();
   }
 
-  public logout(){
+  public logout() {
     this.authUtil.logout();
     console.log(this.authUtil.currentTokenValue);
   }
