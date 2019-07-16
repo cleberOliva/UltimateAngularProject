@@ -7,7 +7,8 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'area', loadChildren: '../app/area/area.module#AreaModule', canActivate: [AuthGuard]}
+  { path: 'area', loadChildren: '../app/area/area.module#AreaModule', canActivate: [AuthGuard]},
+  { path: 'map', loadChildren: '../app/map/map.module#MapModule', canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -1,0 +1,19 @@
+<div>
+  <form action="" [formGroup]="mapForm" (ngSubmit)="onSubmit()">
+    <div>
+      <input type="text" class="form-control" formControlName="latitude" [class.is-invalid]="f.latitude.error && submitted"><label for="latitude">Latitude</label>
+    </div>
+    <div>
+      <input type="text" class="form-control" formControlName="longitude" [class.is-invalid]="f.longitude.error && submitted"><label for="longitude">Longitude</label>
+    </div>
+    <div>
+      <button>Go</button>
+    </div>
+  </form>
+</div>
+<div>
+  <h3> {{ texto }} </h3>
+  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</div>
