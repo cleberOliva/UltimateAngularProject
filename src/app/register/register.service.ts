@@ -5,18 +5,21 @@ import { User } from './user';
 import { Observable, throwError } from 'rxjs';
 import { API } from '../app.const';
 import { catchError } from 'rxjs/operators';
+import { AuthUtilService } from '../auth/auth-util.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private authUtilService: AuthUtilService
   ) { }
 
   private getHeaders() : HttpHeaders {
     return new HttpHeaders({
-      'Content-type': 'application/json'
+      'Content-type': 'application/json',
+      'Authorization': this.authUtilService.currentTokenValue
     })
   }
 
@@ -28,6 +31,12 @@ export class RegisterService {
       responseType: "text" as "json"
     })
     .pipe(catchError(this.handleError));
+  };
+
+  public getUser(): Observable<User> {
+    return this.http.get<User>(`${API.default}/person`, {
+      headers: this.getHeaders(),
+    }).pipe(catchError(this.handleError));
   };
 
   private handleError(error: HttpErrorResponse) {

@@ -1,3 +1,14 @@
-<p>
-  employee-list works!
-</p>
+<div *ngFor="let employee of employees">
+  <div>
+    ID: {{ employee.id}} <br>
+    Nome: {{ employee.name }} <br>
+    Usuário: {{ employee.person.name }} <br>
+    <div>
+      <button type="submit">Alterar</button>
+      <button type="submit" (click)="onRemove(employee.id)">Remover</button>
+    </div>
+  </div>
+</div>
+<div>
+  <button type="submit" [routerLink]="[ '/employee/create']" name="action">Adicionar Funcionario</button>
+</div>
