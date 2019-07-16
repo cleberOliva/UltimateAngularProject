@@ -13,7 +13,7 @@ const routes = [
   declarations: [MapFormComponent],
   imports: [
     CommonModule
-    , AgmCoreModule.forRoot({apiKey: 'AIzaSyB7BXnTjGC9pfKS2QU6napajmSS5bBUc8U'})
+    , AgmCoreModule.forRoot({apiKey: ''})
     , FormsModule
     , ReactiveFormsModule
     , RouterModule.forChild(routes)
