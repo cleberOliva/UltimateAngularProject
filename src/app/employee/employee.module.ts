@@ -5,7 +5,15 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from './employee.service';
-import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {
+  MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule
+} from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
 
 const routes: Routes = [
   { path: '', component: EmployeeListComponent},
@@ -22,7 +30,15 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [EmployeeService]
 })

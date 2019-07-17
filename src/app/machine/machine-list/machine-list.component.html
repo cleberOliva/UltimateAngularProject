@@ -1,14 +1,19 @@
 <div *ngFor="let machine of machines">
-  <div>
-    ID: {{ machine.id}} <br>
-    Ano: {{ machine.year }} <br>
-    Descrição: {{ machine.description }} <br>
-    <div>
-      <button type="submit" (click)="onUpdate(machine.id)">Alterar</button>
-      <button type="submit" (click)="onRemove(machine.id)">Remover</button>
-    </div>
-  </div>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ machine.description }}</mat-card-title>
+      <mat-card-subtitle>{{ machine.year }}</mat-card-subtitle>
+      <span class="example-spacer"></span>
+      <a class="secondary-content" (click)="onUpdate(machine.id)"><i class="material-icons secondary-content"
+          style="cursor:pointer;">edit</i></a>
+      <a class="secondary-content" (click)="onRemove(machine.id)"><i class="material-icons secondary-content"
+          style="cursor:pointer;">delete</i></a>
+    </mat-card-header>
+  </mat-card>
 </div>
 <div>
-  <button mat-raised-button color="primary" type="submit" [routerLink]="[ '/machine/create']" name="action">Adicionar Maquina</button>
+  <button mat-raised-button color="primary" type="submit" [routerLink]="[ '/machine/create']" name="action">Adicionar
+    Maquina</button>
 </div>

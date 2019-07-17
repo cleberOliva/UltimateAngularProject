@@ -17,6 +17,7 @@ export class AreaListComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) { }
+
   ngOnInit() {
 
     this.areaService.getAll().subscribe(

@@ -1,19 +1,20 @@
-<div *ngFor="let area of filterBy('description')">
-  <div>
-    Descrição: {{ area.description }} <br>
-    Geometria: {{ area.geometry }} <br>
-    Solo<br>
-    ID:{{ area.soil.id }} <br>
-    Descrição: {{ area.soil.description }} <br>
-    CreatedAt: {{ area.createdAt }} <br>
-    Person: {{ area.person.name }}
-    <div>
-      <button mat-stroked-button type="submit" (click)="onAlterar(area.id)">Alterar</button>
-      <button mat-raised-button color="warn"type="submit" (click)="onDelete(area.id)">Remover</button>
-      <!-- <button [routerLink]="[ '/area/remover']" type="submit" name="action">Adicionar Area</button> -->
-    </div>
-  </div>
+<div *ngFor="let area of areas">
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ area.description }}</mat-card-title>
+      <mat-card-subtitle>{{ area.person.name }}</mat-card-subtitle>
+      <span class="example-spacer"></span>
+      <a class="secondary-content" (click)="onAlterar(area.id)"><i class="material-icons secondary-content"
+          style="cursor:pointer;">edit</i></a>
+      <a class="secondary-content" (click)="onDelete(area.id)"><i class="material-icons secondary-content"
+          style="cursor:pointer;">delete</i></a>
+
+    </mat-card-header>
+  </mat-card>
 </div>
 <div>
-  <button mat-raised-button color="primary" [routerLink]="[ '/area/create']" type="submit" name="action">Adicionar Area</button>
+  <button mat-raised-button color="primary" [routerLink]="[ '/area/create']" type="submit" name="action">Adicionar
+    Área</button>
 </div>

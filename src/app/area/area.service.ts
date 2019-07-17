@@ -37,6 +37,7 @@ export class AreaService {
   }
 
   public addArea(area: Area, soil: number): Observable<string> {
+    console.log("SOLO QUE NÃO FUNCIONA: " + soil);
     var body = new Area(area.description,area.geometry, soil);
     console.log(body);
     return this.http.post<string>(`${API.default}/area`, body, {

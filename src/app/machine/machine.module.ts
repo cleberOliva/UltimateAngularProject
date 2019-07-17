@@ -4,7 +4,7 @@ import { MachineFormsComponent } from './machine-forms/machine-forms.component';
 import { MachineListComponent } from './machine-list/machine-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatExpansionModule, MatCardModule, MatToolbarModule, MatDividerModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 const routes = [
   { path: '', component: MachineListComponent},
@@ -21,6 +21,14 @@ const routes = [
     , MatButtonModule
     , MatFormFieldModule
     , MatInputModule
+    , MatExpansionModule
+    , MatCardModule
+    , MatToolbarModule
+    , MatDividerModule
+    , MatSidenavModule
+    , MatButtonModule
+    , MatIconModule
+    , MatListModule
   ]
 })
 export class MachineModule { }

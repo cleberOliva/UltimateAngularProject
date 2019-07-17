@@ -5,12 +5,21 @@ import { AreaListComponent } from './area-list/area-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AreaService } from './area.service';
-import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {
+  MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule
+} from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
+
 
 const routes: Routes = [
-  { path: '', component: AreaListComponent},
-  { path: 'create', component: AreaFormsComponent},
-  { path: 'update/:id', component: AreaFormsComponent}
+  { path: '', component: AreaListComponent },
+  { path: 'create', component: AreaFormsComponent },
+  { path: 'update/:id', component: AreaFormsComponent }
 ];
 
 @NgModule({
@@ -22,7 +31,15 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [AreaService]
 })

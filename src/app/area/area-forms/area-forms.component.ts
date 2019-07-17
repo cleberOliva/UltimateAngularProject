@@ -15,6 +15,7 @@ import { Soil } from '../soil.model';
 export class AreaFormsComponent implements OnInit {
   areaForm: FormGroup;
   soil: Soil[];
+  idSoil: number;
   isEdit: boolean = false;
   private _id: number;
 
@@ -64,12 +65,18 @@ export class AreaFormsComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("Teste: " + this.soil[0].id);
+    //console.log("Teste: " + this.soil[0].id);
+    if(this.soil.length === 0){
+      this.idSoil = 1;
+    }else{
+      this.idSoil = this.soil[0].id;
+    }
+
     if (this.areaForm.invalid){
       return;
     }
     if(!this.isEdit){
-      this.areaService.addArea(this.areaForm.value, this.soil[0].id).subscribe(
+      this.areaService.addArea(this.areaForm.value, this.idSoil).subscribe(
         data => {
           this.alertService.success("Area Cadastrada");
           this.router.navigate(["/area"]);
@@ -78,7 +85,7 @@ export class AreaFormsComponent implements OnInit {
         }
       )
     }else{
-      this.areaService.updateArea(this._id, this.areaForm.value, this.soil[0].id).subscribe(
+      this.areaService.updateArea(this._id, this.areaForm.value, this.idSoil).subscribe(
         data => {
           this.alertService.success("Area Atualizada!");
           this.router.navigate(["/area"]);
