@@ -5,6 +5,7 @@ import { AreaListComponent } from './area-list/area-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AreaService } from './area.service';
+import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 const routes: Routes = [
   { path: '', component: AreaListComponent},
@@ -18,7 +19,10 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [AreaService]
 })

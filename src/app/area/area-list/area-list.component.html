@@ -8,12 +8,12 @@
     CreatedAt: {{ area.createdAt }} <br>
     Person: {{ area.person.name }}
     <div>
-      <button type="submit" (click)="onAlterar(area.id)">Alterar</button>
-      <button type="submit" (click)="onDelete(area.id)">Remover</button>
+      <button mat-stroked-button type="submit" (click)="onAlterar(area.id)">Alterar</button>
+      <button mat-raised-button color="warn"type="submit" (click)="onDelete(area.id)">Remover</button>
       <!-- <button [routerLink]="[ '/area/remover']" type="submit" name="action">Adicionar Area</button> -->
     </div>
   </div>
 </div>
 <div>
-  <button [routerLink]="[ '/area/create']" type="submit" name="action">Adicionar Area</button>
+  <button mat-raised-button color="primary" [routerLink]="[ '/area/create']" type="submit" name="action">Adicionar Area</button>
 </div>

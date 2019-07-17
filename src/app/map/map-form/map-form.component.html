@@ -1,13 +1,19 @@
 <div>
-  <form action="" [formGroup]="mapForm" (ngSubmit)="onSubmit()">
+  <form class="form-full-width" action="" [formGroup]="mapForm" (ngSubmit)="onSubmit()">
     <div>
-      <input type="text" class="form-control" formControlName="latitude" [class.is-invalid]="f.latitude.error && submitted"><label for="latitude">Latitude</label>
+      <mat-form-field class="input-full-width">
+        <input matInput type="text" class="form-control" formControlName="latitude"
+          [class.is-invalid]="f.latitude.error && submitted" placeholder="Latitude">
+      </mat-form-field>
     </div>
     <div>
-      <input type="text" class="form-control" formControlName="longitude" [class.is-invalid]="f.longitude.error && submitted"><label for="longitude">Longitude</label>
+      <mat-form-field class="input-full-width">
+        <input matInput type="text" class="form-control" formControlName="longitude"
+          [class.is-invalid]="f.longitude.error && submitted" placeholder="Longitude">
+      </mat-form-field>
     </div>
     <div>
-      <button>Go</button>
+      <button mat-raised-button color="primary">Go</button>
     </div>
   </form>
 </div>

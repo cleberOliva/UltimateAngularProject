@@ -1,24 +1,26 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-signin text-center">
 
-  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-
   <div class="form-group">
-    <input type="text" formControlName="username" placeholder="Usuário" class="form-control"
-      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-    <div *ngIf="loginForm.hasError && f.username.errors" class="invalid-feedback">
-      <div *ngIf="f.username.errors.required">Usuário obrigatório</div>
-    </div>
+    <mat-form-field>
+      <input matInput type="text" formControlName="username" placeholder="Usuário" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+      <div *ngIf="loginForm.hasError && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Usuário obrigatório</div>
+      </div>
+    </mat-form-field>
   </div>
   <div class="form-group">
-    <input type="password" placeholder="Senha" formControlName="password" class="form-control"
-      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-    <div *ngIf="loginForm.hasError && f.password.errors" class="invalid-feedback">
-      <div *ngIf="f.password.errors.required">Senha obrigatório</div>
-    </div>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Senha" formControlName="password" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+      <div *ngIf="loginForm.hasError && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Senha obrigatório</div>
+      </div>
+    </mat-form-field>
   </div>
 
   <div class="form-group">
-    <button [disabled]="loading" class="btn btn-success">
+    <button mat-raised-button color="primary" [disabled]="loading" class="btn btn-success">
       <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       Login
     </button>

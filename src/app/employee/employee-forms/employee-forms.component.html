@@ -1,9 +1,10 @@
-<form action="" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+<form class="form-full-width" action="" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
   <div>
-    <input type="text" class="form-control" formControlName="name" [class.is-invalid]="f.name.errors && submitted">
-    <label for="name">Nome</label>
+    <mat-form-field class="input-full-width">
+      <input matInput type="text" class="form-control" formControlName="name" [class.is-invalid]="f.name.errors && submitted" placeholder="Nome">
+    </mat-form-field>
   </div>
-  <button>
+  <button mat-raised-button color="primary">
     <span *ngIf="!isEdit">Gravar Dados</span>
     <span *ngIf="isEdit">Alterar Dados</span>
   </button>

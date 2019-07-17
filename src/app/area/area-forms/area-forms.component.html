@@ -1,22 +1,21 @@
-<form action="" [formGroup]="areaForm" (ngSubmit)="onSubmit()">
+<form class="form-full-width" action="" [formGroup]="areaForm" (ngSubmit)="onSubmit()">
   <div>
-    <input type="text" class="form-control" formControlName="description"
-      [class.is-invalid]="f.description.errors && submitted">
-    <label for="description">Descrição</label>
-  </div>
-  <div>
-    <input type="text" class="form-control" formControlName="geometry"
-      [class.is-invalid]="f.geometry.errors && submitted">
-    <label for="description">Geometria</label>
-  </div>
-  <!--
-  <div>
-    <input type="text" class="form-control" formControlName="soil" [class.is-invalid]="f.soil.errors && submitted">
-    <label for="description">Solo</label>
-  </div>
-  -->
+    <div>
+      <mat-form-field class="input-full-width">
+        <input matInput type="text" class="form-control" formControlName="description"
+          [class.is-invalid]="f.description.errors && submitted" placeholder="Descrição">
+      </mat-form-field>
+    </div>
 
-  <button class="btn btn-success">
+    <div>
+      <mat-form-field class="input-full-width"
+        hintLabel="SRID=4326;MULTIPOLYGON(((-45.98 -19.56,-46.05 -19.25,-43.52 -20.37,-43.05 -20.67,-45.98 -19.56)))">
+        <input matInput type="text" class="form-control" formControlName="geometry"
+          [class.is-invalid]="f.geometry.errors && submitted" placeholder="Geometria">
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button color="primary">
     <span *ngIf="!isEdit">Gravar Dados</span>
     <span *ngIf="isEdit">Alterar Dados</span>
   </button>

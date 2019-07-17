@@ -1,0 +1,14 @@
+<div *ngFor="let machine of machines">
+  <div>
+    ID: {{ machine.id}} <br>
+    Ano: {{ machine.year }} <br>
+    Descrição: {{ machine.description }} <br>
+    <div>
+      <button type="submit" (click)="onUpdate(machine.id)">Alterar</button>
+      <button type="submit" (click)="onRemove(machine.id)">Remover</button>
+    </div>
+  </div>
+</div>
+<div>
+  <button mat-raised-button color="primary" type="submit" [routerLink]="[ '/machine/create']" name="action">Adicionar Maquina</button>
+</div>

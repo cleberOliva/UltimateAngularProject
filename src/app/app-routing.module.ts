@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'area', loadChildren: '../app/area/area.module#AreaModule', canActivate: [AuthGuard]},
   { path: 'employee', loadChildren: '../app/employee/employee.module#EmployeeModule', canActivate: [AuthGuard]},
+  { path: 'machine', loadChildren: '../app/machine/machine.module#MachineModule', canActivate: [AuthGuard]},
   { path: 'map', loadChildren: '../app/map/map.module#MapModule', canActivate: [AuthGuard]}
 ];
 

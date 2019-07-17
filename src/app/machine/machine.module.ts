@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MachineFormsComponent } from './machine-forms/machine-forms.component';
+import { MachineListComponent } from './machine-list/machine-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AgmCoreModule } from '@agm/core';
-import { MapFormComponent } from './map-form/map-form.component';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 const routes = [
-  { path: '', component: MapFormComponent}
-];
-
+  { path: '', component: MachineListComponent},
+  { path: 'create', component: MachineFormsComponent},
+  { path: 'update/:id', component: MachineFormsComponent}
+]
 @NgModule({
-  declarations: [MapFormComponent],
+  declarations: [MachineFormsComponent, MachineListComponent],
   imports: [
     CommonModule
-    , AgmCoreModule.forRoot({apiKey: 'AIzaSyB7BXnTjGC9pfKS2QU6napajmSS5bBUc8U'})
     , FormsModule
     , ReactiveFormsModule
     , RouterModule.forChild(routes)
@@ -23,4 +23,4 @@ const routes = [
     , MatInputModule
   ]
 })
-export class MapModule { }
+export class MachineModule { }

@@ -6,6 +6,7 @@ import { Observable, throwError } from 'rxjs';
 import { API } from '../app.const';
 import { catchError } from 'rxjs/operators';
 import { AuthUtilService } from '../auth/auth-util.service';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,8 @@ export class RegisterService {
   }
 
   public addUser(user: User): Observable<string> {
-    var body = new User(user.name, user.mail, user.phone, user.password, user.birth, 1, 1);
+    var body = new User(user.name, user.mail, user.phone, user.password, moment(user.birth).format("YYYY-MM-DDTHH:mm:ssZZ"), 1, 1);
+    console.log(moment(user.birth).format("YYYY-MM-DDTHH:mm:ssZZ"));
     console.log(body);
     return this.http.post<string>(`${API.default}/person`, body, {
       headers: this.getHeaders(),
