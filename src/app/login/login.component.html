@@ -1,7 +1,7 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-signin text-center">
+<form class="form-full-width" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-signin text-center">
 
-  <div class="form-group">
-    <mat-form-field>
+  <div>
+    <mat-form-field class="input-full-width">
       <input matInput type="text" formControlName="username" placeholder="Usuário" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
       <div *ngIf="loginForm.hasError && f.username.errors" class="invalid-feedback">
@@ -9,8 +9,8 @@
       </div>
     </mat-form-field>
   </div>
-  <div class="form-group">
-    <mat-form-field>
+  <div>
+    <mat-form-field class="input-full-width">
       <input matInput type="password" placeholder="Senha" formControlName="password" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
       <div *ngIf="loginForm.hasError && f.password.errors" class="invalid-feedback">
