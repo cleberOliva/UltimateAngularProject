@@ -9,7 +9,7 @@ import { Router, Route, ActivatedRoute } from '@angular/router';
   styleUrls: ['./area-list.component.css']
 })
 export class AreaListComponent implements OnInit {
-  areas: Area[];
+  areas: Area[] = [];
   private areaId: number;
 
   constructor(
@@ -34,6 +34,10 @@ export class AreaListComponent implements OnInit {
 
   onDelete(id: number){
     this.areaService.delete(id).subscribe();
+  }
+
+  filterBy(prop: string) {
+    return this.areas.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
   }
 
 }

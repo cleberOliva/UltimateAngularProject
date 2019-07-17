@@ -23,10 +23,32 @@ export class EmployeeService {
   public getAll(): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${API.default}/employee`, {
       headers: this.getHeaders()
-    })
-    .pipe(catchError(this.handleError));
+    }).pipe(catchError(this.handleError));
   }
-  
+
+  public getById(id: number): Observable<Employee> {
+    return this.http.get<Employee>(`${API.default}/employee/${id}`, {
+      headers: this.getHeaders()
+    }).pipe(catchError(this.handleError));
+  }
+  public addEmployee(employee: Employee, person: number): Observable<string> {
+    var body = new Employee(employee.name, person);
+    return this.http.post<string>(`${API.default}/employee`, body, {
+      headers: this.getHeaders(),
+      responseType: "text" as "json"
+    }).pipe(catchError(this.handleError));
+  }
+
+  public updateEmployee(id: number, employee: Employee, person: number): Observable<string> {
+    var body = new Employee(employee.name, person);
+    body.id = id;
+    console.log(body);
+    return this.http.put<string>(`${API.default}/employee`, body, {
+      headers: this.getHeaders(),
+      responseType: "text" as "json"
+    }).pipe(catchError(this.handleError));
+  }
+
   public delete(id: number): Observable<{}> {
     return this.http.delete(`${API.default}/employee/${id}`, {
       headers: this.getHeaders(),

@@ -5,6 +5,7 @@ import { AlertService } from 'src/app/alert';
 import { AreaService } from '../area.service';
 import { AuthUtilService } from 'src/app/auth/auth-util.service';
 import { Area } from '../area.model';
+import { Soil } from '../soil.model';
 
 @Component({
   selector: 'app-area-forms',
@@ -13,9 +14,8 @@ import { Area } from '../area.model';
 })
 export class AreaFormsComponent implements OnInit {
   areaForm: FormGroup;
-
+  soil: Soil[];
   isEdit: boolean = false;
-
   private _id: number;
 
   constructor(
@@ -30,13 +30,18 @@ export class AreaFormsComponent implements OnInit {
       this.alertService.error("Você precisa estar logado para acessar essa página!");
       this.router.navigate(["/index"]);
     }
+    this.areaService.getSoil().subscribe(
+      (data: Soil[]) => {
+        this.soil = data;
+      }, error => console.error(error)
+    );
   }
 
   ngOnInit() {
     this.areaForm = this.formBuilder.group({
       description: ["", Validators.required],
-      geometry: ["", Validators.required],
-      soil: ["", Validators.required]
+      geometry: ["", Validators.required]
+      // soil: ["", Validators.required]
     });
 
     this.route.paramMap.subscribe(param => {
@@ -48,8 +53,8 @@ export class AreaFormsComponent implements OnInit {
             this._id = parseInt(value);
             this.areaForm.patchValue({
               description: area.description,
-              geometry: area.geometry,
-              soil: area.soil.id
+              geometry: area.geometry
+              // soil: area.soil.id
             });
             console.log(area);
           }, error => console.error(error)
@@ -59,11 +64,12 @@ export class AreaFormsComponent implements OnInit {
   }
 
   onSubmit(){
+    console.log("Teste: " + this.soil[0].id);
     if (this.areaForm.invalid){
       return;
     }
     if(!this.isEdit){
-      this.areaService.addArea(this.areaForm.value).subscribe(
+      this.areaService.addArea(this.areaForm.value, this.soil[0].id).subscribe(
         data => {
           this.alertService.success("Area Cadastrada");
           this.router.navigate(["/area"]);
@@ -72,7 +78,7 @@ export class AreaFormsComponent implements OnInit {
         }
       )
     }else{
-      this.areaService.updateArea(this._id, this.areaForm.value).subscribe(
+      this.areaService.updateArea(this._id, this.areaForm.value, this.soil[0].id).subscribe(
         data => {
           this.alertService.success("Area Atualizada!");
           this.router.navigate(["/area"]);

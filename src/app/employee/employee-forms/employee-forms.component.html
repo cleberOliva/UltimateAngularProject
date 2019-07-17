@@ -1,21 +1,10 @@
 <form action="" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
-    <div>
-      <input type="text" class="form-control" formControlName="name"
-        [class.is-invalid]="f.name.errors && submitted">
-      <label for="name">Nome</label>
-    </div>
-    <!-- <div>
-      <input type="text" class="form-control" formControlName="geometry"
-        [class.is-invalid]="f.geometry.errors && submitted">
-      <label for="description">Geometria</label>
-    </div>
-    <div>
-      <input type="text" class="form-control" formControlName="soil" [class.is-invalid]="f.soil.errors && submitted">
-      <label for="description">Solo</label>
-    </div> -->
-    <button><span>Gravar Dados</span></button>
-    <!-- <button class="btn btn-success">
-      <span *ngIf="!isEdit">Gravar Dados</span>
-      <span *ngIf="isEdit">Alterar Dados</span>
-    </button> -->
-  </form>
+  <div>
+    <input type="text" class="form-control" formControlName="name" [class.is-invalid]="f.name.errors && submitted">
+    <label for="name">Nome</label>
+  </div>
+  <button>
+    <span *ngIf="!isEdit">Gravar Dados</span>
+    <span *ngIf="isEdit">Alterar Dados</span>
+  </button>
+</form>

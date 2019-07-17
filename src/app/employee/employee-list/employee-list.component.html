@@ -4,7 +4,7 @@
     Nome: {{ employee.name }} <br>
     Usuário: {{ employee.person.name }} <br>
     <div>
-      <button type="submit">Alterar</button>
+      <button type="submit" (click)="onUpdate(employee.id)">Alterar</button>
       <button type="submit" (click)="onRemove(employee.id)">Remover</button>
     </div>
   </div>

@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { Area } from './area.model';
 import { API } from '../app.const';
 import { catchError } from 'rxjs/operators';
+import { Soil } from './soil.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +36,8 @@ export class AreaService {
     .pipe(catchError(this.handleError));
   }
 
-  public addArea(area: Area): Observable<string> {
-    var body = new Area(area.description,area.geometry, area.soil);
+  public addArea(area: Area, soil: number): Observable<string> {
+    var body = new Area(area.description,area.geometry, soil);
     console.log(body);
     return this.http.post<string>(`${API.default}/area`, body, {
       headers: this.getHeaders(),
@@ -52,14 +53,20 @@ export class AreaService {
     .pipe(catchError(this.handleError));
   }
 
-  public updateArea(id: number, area: Area): Observable<string> {
-    var body = new Area(area.description, area.geometry, area.soil);
+  public updateArea(id: number, area: Area, soil: number): Observable<string> {
+    var body = new Area(area.description, area.geometry, soil);
     body.id = id.toString();
     return this.http.put<string>(`${API.default}/area`, body, {
       headers: this.getHeaders(),
       responseType: "text" as "json"
     })
     .pipe(catchError(this.handleError));
+  }
+
+  public getSoil(): Observable<Soil[]> {
+    return this.http.get<Soil[]>(`${API.default}/soil`, {
+      headers: this.getHeaders()
+    }).pipe(catchError(this.handleError));
   }
 
   public delete(id: number): Observable<{}> {

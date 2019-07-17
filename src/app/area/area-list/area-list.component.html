@@ -1,5 +1,5 @@
-<div *ngFor="let area of areas">
-  <div>ID: {{ area.id }} <br>
+<div *ngFor="let area of filterBy('description')">
+  <div>
     Descrição: {{ area.description }} <br>
     Geometria: {{ area.geometry }} <br>
     Solo<br>
